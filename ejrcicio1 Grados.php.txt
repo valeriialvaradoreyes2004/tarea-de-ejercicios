@@ -1,0 +1,19 @@
+<?php
+
+class ConversorTemperatura{
+    private $grados; 
+    
+
+    function __construct($grados)
+    {
+        $this->grados = $grados;
+    }
+
+    function aFahrenheit(){
+        return ($this ->grados * 1.8) + 32;
+    }
+}
+$temperatura = new ConversorTemperatura(25); // Crea una nueva instancia de ConversorTemperatura con 25 grados centígrados
+
+echo $temperatura->aFahrenheit(); // Imprime la conversión de los grados centígrados a grados Fahrenheit
+?>

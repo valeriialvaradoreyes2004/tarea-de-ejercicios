@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Evaluación de temperatura</title>
+</head>
+<body>
+	<?php
+		class Temperatura {
+		  private $grados;
+
+		  public function __construct($grados) {
+		    $this->grados = $grados;
+		  }
+
+		  public function evaluarTemperatura() {
+		    if ($this->grados <= 0) {
+		      echo "<span style='color:blue'>temperatura máximamente FRIA</span>";
+		    } else if ($this->grados <= 30) {
+		      echo "<span style='color:yellow'>temperatura estable</span>";
+		    } else {
+		      echo "<span style='color:red'>temperatura máximamente CALIENTE</span>";
+		    }
+		  }
+		}
+
+	
+		$temperatura1 = new Temperatura(-5);
+		$temperatura2 = new Temperatura(20);
+		$temperatura3 = new Temperatura(35);
+
+		echo "<p>La temperatura actual es: " . $temperatura1->evaluarTemperatura() . "</p>";
+		echo "<p>La temperatura actual es: " . $temperatura2->evaluarTemperatura() . "</p>";
+		echo "<p>La temperatura actual es: " . $temperatura3->evaluarTemperatura() . "</p>";
+	?>
+</body>
+</html>

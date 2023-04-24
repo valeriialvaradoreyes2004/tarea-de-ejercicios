@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mostrar imágenes según el número ingresado</title>
+	<style type="text/css">
+		img {
+			width: 150px;
+			height: 150px;
+			margin: 10px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Mostrar imágenes según el número ingresado</h1>
+	<form method="post">
+		<label for="numero">Ingrese un número:</label>
+		<input type="number" name="numero" id="numero" required>
+		<button type="submit">Mostrar imágenes</button>
+	</form>
+	<?php
+		class Imagenes {
+		  private $cantidad;
+
+		  public function __construct($cantidad) {
+		    $this->cantidad = $cantidad;
+		  }
+
+		  public function mostrarImagenes() {
+		    for ($i = 1; $i <= $this->cantidad; $i++) {
+		      echo "<img src='monos.jpg' alt='Imagen $i'>";
+		    }
+		  }
+		}
+
+		if (isset($_POST['numero'])) {
+			$cantidadImagenes = intval($_POST['numero']);
+			$imagenes = new Imagenes($cantidadImagenes);
+			$imagenes->mostrarImagenes();
+		}
+	?>
+</body>
+</html>
